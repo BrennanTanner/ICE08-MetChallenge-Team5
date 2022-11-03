@@ -5,15 +5,13 @@ const departmentURL = 'https://collectionapi.metmuseum.org/public/collection/v1/
 const data = await getData(departmentURL);
 
 export function buildForm() {
-   console.log(data.departments[0]);
 
    document.querySelector('body').insertAdjacentHTML('afterbegin', 
    `<form id="deptSelect">
    <label>Select a Department</label>
-    <select>
-    </select>
-    <button>
-    Submit</button>
+    <select id="deptData">
+    <option value="" selected="selected"> Choose a Department
+    </option>
    </form>`
    );
 
@@ -27,7 +25,7 @@ export function buildForm() {
 }
 
 export function buildOption(option) {
-    return `<option value="${option.displayId
+    return `<option value="${option.departmentId
     }"> ${option.displayName
     }
     </option>`
